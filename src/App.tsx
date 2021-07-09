@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
+import React, { useRef, useEffect } from "react";
+import Bookmarks from '@arcgis/core/widgets/Bookmarks';
+import Expand from '@arcgis/core/widgets/Expand';
+import MapView from "@arcgis/core/views/MapView";
+import Map from "@arcgis/core/Map";
+
+import "./App.css"; 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const mapDiv = useRef(null) as any;
+  useEffect(() => {
+    if (mapDiv.current) {
+      /**
+       * Initialize application
+       */
+       let map = new Map({
+        basemap: 'streets',
+        layers: [],
+      });
+
+      const view = new MapView({
+        container: mapDiv.current,
+        map: map
+      });
+
+      // bonus - how many bookmarks in the webmap?
+   
+    }
+  }, []);
+    return <div className="mapDiv" ref={mapDiv} style={{height:"820px",width:"950px"}}></div>;
+
 }
 
 export default App;

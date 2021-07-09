@@ -1,0 +1,15 @@
+how to install map
+npm i @arcgis/core
+
+--- add this to packadge.json
+ 
+ "scripts": {
+    "start": "ncp ./node_modules/@arcgis/core/assets ./public/assets && react-scripts start",
+    "build": "ncp ./node_modules/@arcgis/core/assets ./public/assets && react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+
+// you can use
+// https://www.npmjs.com/package/@arcgis/core
+// https://github.com/Esri/jsapi-resources/tree/master/esm-samples/jsapi-angular-cli
